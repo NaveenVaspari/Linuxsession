@@ -1,0 +1,26 @@
+def factorial(n):
+    """Return the factorial of a number."""
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+def is_strong_number(num):
+    """Check if the given number is a strong number."""
+    sum_of_factorials = 0
+    temp = num
+    
+    while temp > 0:
+        digit = temp % 10
+        sum_of_factorials += factorial(digit)
+        temp //= 10
+    
+    return sum_of_factorials == num
+
+# Test the function
+number = 145  # 145 is a known strong number: 1! + 4! + 5! = 1 + 24 + 120 = 145
+if is_strong_number(number):
+    print(f"{number} is a strong number.")
+else:
+    print(f"{number} is not a strong number.")
+coding part is completed over here..
